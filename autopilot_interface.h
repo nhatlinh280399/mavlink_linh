@@ -162,6 +162,7 @@ struct Time_Stamps
 	uint64_t system_time;
 	uint64_t altitude;
 
+
 	void
 	reset_timestamps()
 	{
