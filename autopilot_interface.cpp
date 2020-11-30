@@ -771,7 +771,13 @@ start()
 	uint64_t Arm_time = local_data.flight_information.arming_time_utc;
 	//uint64_t Takeoff_time = local_data.flight_information.takeoff_time_utc;
 	int16_t	yaw_uav = local_data.vfr_hud.heading;
+	// altitude
     int32_t altitude_uav = local_data.altitude.altitude_amsl;
+    //battery
+    int32_t current_consumed_uav = local_data.battery_status.current_consumed;
+    int32_t energy_consumed_uav = local_data.battery_status.energy_consumed;
+    int16_t temperature_uav = local_data.battery_status.temperature;
+    int8_t battery_remaining_uav = local_data.battery_status.battery_remaining;
 	//int32_t latitude = local_data.gps_raw_int.lat;
 	//int32_t longtitude = local_data.gps_raw_int.lon;
 	uint64_t time = local_data.system_time.time_unix_usec;
@@ -803,6 +809,10 @@ start()
 	printf("%" PRIu64 "\n", time );
 	altitude_uav = -altitude_uav;
 	printf("    Do cao so voi mat bien: %i m \n", altitude_uav );
+	printf("    Dong dien tieu thu: %i mA \n",current_consumed_uav);
+	printf("    Dien ap tieu thu: %i V \n",energy_consumed_uav);
+	printf("    Nhiet do pin : %i C \n",temperature_uav );
+	printf("    Trang thai pin con lai: %i % \n",battery_remaining_uav);
 
 	//printf(" 	Takeoff time: %i \n", Takeoff_time );
 	//printf("	Latitude: %d.%07d Longtitude %d.%07d \n", abs(latitude/10000000), abs(latitude % 10000000), abs(longtitude/10000000), abs(longtitude/10000000));
