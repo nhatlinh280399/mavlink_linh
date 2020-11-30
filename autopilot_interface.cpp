@@ -414,8 +414,9 @@ read_messages()
 				
 				case MAVLINK_MSG_ID_ALTITUDE:
 				{
-					mavlink_msg_altitude_decode(&message, (&current_messages.altitude))
-					
+					mavlink_msg_altitude_decode(&message, (&current_messages.altitude));
+					//current_messages.time_stamps.altitude = get_time_usec();
+					//this_timestamps.altitude = current_messages.altitude;
 					break;
 				}
 
@@ -441,7 +442,8 @@ read_messages()
 //				this_timestamps.position_target_global_int &&
 //				this_timestamps.highres_imu                &&
 //				this_timestamps.attitude                   &&
-				this_timestamps.sys_status
+//				this_timestamps.altitude                   &&
+				this_timestamps.sys_status                 
 				;
 
 		// give the write thread time to use the port
@@ -769,6 +771,7 @@ start()
 	uint64_t Arm_time = local_data.flight_information.arming_time_utc;
 	//uint64_t Takeoff_time = local_data.flight_information.takeoff_time_utc;
 	int16_t	yaw_uav = local_data.vfr_hud.heading;
+    int32_t altitude_uav = local_data.altitude.altitude_amsl;
 	//int32_t latitude = local_data.gps_raw_int.lat;
 	//int32_t longtitude = local_data.gps_raw_int.lon;
 	uint64_t time = local_data.system_time.time_unix_usec;
@@ -794,8 +797,11 @@ start()
 	//printf("\n");
 
 	printf("	La Ban (compass): %i \n ", yaw_uav);
+	printf("    Arm time: ");
 	printf("%" PRIu64 "\n", Arm_time);
+	printf("    Time: ", );
 	printf("%" PRIu64 "\n", time );
+	printf("    Do cao so voi mat bien: %i \n", altitude_uav );
 
 	//printf(" 	Takeoff time: %i \n", Takeoff_time );
 	//printf("	Latitude: %d.%07d Longtitude %d.%07d \n", abs(latitude/10000000), abs(latitude % 10000000), abs(longtitude/10000000), abs(longtitude/10000000));

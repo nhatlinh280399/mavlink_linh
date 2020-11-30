@@ -160,6 +160,7 @@ struct Time_Stamps
 	uint64_t gps_raw_int;
 	uint64_t flight_information;
 	uint64_t system_time;
+	uint64_t altitude;
 
 	void
 	reset_timestamps()
@@ -179,6 +180,7 @@ struct Time_Stamps
 		gps_raw_int = 0;
 		flight_information = 0;
 		system_time = 0;
+		altitude = 0;
 	}
 
 };
@@ -233,9 +235,8 @@ struct Mavlink_Messages {
 
 	mavlink_system_time_t system_time;
 	
-	// Altitude
-	
-	mavlink_msg_altitude altitude;
+	// Altitude	
+	mavlink_altitude_t altitude;
 
 	// System Parameters?
 
