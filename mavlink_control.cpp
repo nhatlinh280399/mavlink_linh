@@ -330,7 +330,7 @@ commands(Autopilot_Interface &api, bool autotakeoff)
 	//mavlink_attitude_t attitude = messages.attitude;
 
 	mavlink_vfr_hud_t vfr_hud = messages.vfr_hud;
-	mavlink_msg_altitude_t = messages.altitude;
+	mavlink_altitude_t altitude = messages.altitude;
 	// printf("Got message HIGHRES_IMU (spec: https://mavlink.io/en/messages/common.html#HIGHRES_IMU)\n");
 	// printf("    ap time:     %lu \n", imu.time_usec);
 	//printf("    acc  (NED):  % f % f % f (m/s^2)\n", imu.xacc , imu.yacc , imu.zacc );
@@ -350,7 +350,7 @@ commands(Autopilot_Interface &api, bool autotakeoff)
 	// printf("    temperature: %f C \n"       , imu.temperature );
 	printf("Heading: %i \n", vfr_hud.heading );
 	//printf("Altitude: %f \n", vfr_hud.alt);
-	printf("Altitude amsl %iv\n",altitude.altitude.amsl );
+	printf("Altitude amsl %iv\n",altitude.altitude_amsl );
 
 
 	printf("\n");

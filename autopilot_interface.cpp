@@ -799,7 +799,7 @@ start()
 	printf("	La Ban (compass): %i \n ", yaw_uav);
 	printf("    Arm time: ");
 	printf("%" PRIu64 "\n", Arm_time);
-	printf("    Time: ", );
+	printf("    Time: ");
 	printf("%" PRIu64 "\n", time );
 	printf("    Do cao so voi mat bien: %i \n", altitude_uav );
 
