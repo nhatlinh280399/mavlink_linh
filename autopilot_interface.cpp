@@ -801,7 +801,8 @@ start()
 	printf("%" PRIu64 "\n", Arm_time);
 	printf("    Time: ");
 	printf("%" PRIu64 "\n", time );
-	printf("    Do cao so voi mat bien: %i \n", altitude_uav );
+	altitude_uav = -altitude_uav;
+	printf("    Do cao so voi mat bien: %i m \n", altitude_uav );
 
 	//printf(" 	Takeoff time: %i \n", Takeoff_time );
 	//printf("	Latitude: %d.%07d Longtitude %d.%07d \n", abs(latitude/10000000), abs(latitude % 10000000), abs(longtitude/10000000), abs(longtitude/10000000));
